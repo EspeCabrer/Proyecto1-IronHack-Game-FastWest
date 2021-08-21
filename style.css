@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background-image: url(/imagenes/fondo.jpeg); */
+    background-size: 100% 100%;
+    background-image: url(/imagenes/fondo\ madera1.jpeg);
+    background-image: center center no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+    margin: 100px auto;
+    height: 500px;
+    width: 900px;
+    display:flex;
+    justify-content: center;
+    background-image: url(/imagenes/pergamino.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.logo {
+    font-size: 8em;
+    font-family: fantasy;
+}
+.descr{
+    font-family: fantasy;
+    font-size: 1.5em;
+}
+
+
+.start-btn>button {
+    background-image: url("/imagenes/textura madera.jpeg");
+    height: 60px;
+    width: 200px;
+    font-size: 35px;
+    text-align: center;
+    font-family: fantasy;
+    color: white;
+    margin: 30px;
+}
