@@ -6,10 +6,13 @@ const game = {
             },
         blocks: [],
         currentBlock: undefined,
+        wordPos: 0,               // Posición de la letra que se chequea
+        currentWord: undefined,
         intervalId: undefined,
         framesCounter: 0,
         speed: 2,
         score: 0,
+    
 
         init(canvas){
             this.setContext(canvas);
@@ -42,7 +45,7 @@ const game = {
                     this.createBlock(randomWord(oneLetter))
                 
                 }    
-            }, 1000 / 60);
+            }, 100 );
         },
 
         clearCanvas() {
@@ -92,10 +95,33 @@ const game = {
     // Evento pulsar la tecla
          setListeners() {
              document.addEventListener('keydown', (e) => {
-                 let keyCode = e.key
-                 if (keyCode >= 'a' && keyCode <= 'z'){
-                 console.log(keyCode);     
+                 let pressedKey = e.key
+                 if (pressedKey >= 'a' && pressedKey <= 'z'){
+                 console.log(pressedKey);  
+                 this.checkLetter(pressedKey);
+                 this.checkWord()
                  }
              })
          },
-} 
+
+         checkLetter(pressedKey){
+             this.currentWord = this.currentBlock.word;
+             if (pressedKey === this.currentWord[this.wordPos]) {
+                this.wordPos +=1;
+            } else {
+                this.wordPos = 0;
+            }
+            console.log("currentWord", this.currentWord)
+            console.log("currentBlockWord", this.currentBlock.word)
+        }, 
+        
+         checkWord() {
+            if (this.currentWord.length === this.wordPos) {
+                this.blocks.shift()
+                this.currentBlock = this.blocks[0]
+            
+             }
+             console.log("BlockArr", this.blocks)
+         }
+}
+
