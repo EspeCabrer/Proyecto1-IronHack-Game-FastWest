@@ -1,28 +1,29 @@
 class block {
-    constructor(ctx, width, height, canvasSize, position, speed) {
+    constructor(ctx, width, height, canvasSize, position, speed, word) {
         this.ctx = ctx
-        this.obstacleSize = { w: width, h: height }
+        this.blockSize = { w: width, h: height }
         this.canvasSize = canvasSize
-        this.obstaclePosition = { x: position, y: -100 }
-        this.randomImage = Math.trunc(Math.random() * (8 - 1) + 1)
+        this.blockPosition = { x: position, y: -100 }
         this.speed = speed
         this.imageInstance = new Image();
         this.imageInstance.src = "/imagenes/textura madera.jpeg"
+        this.word = word
      }
 
         draw() {
             this.ctx.drawImage(
                  this.imageInstance,
-                 this.obstaclePosition.x,
-                 this.obstaclePosition.y,
-                 this.obstacleSize.w,
-                 this.obstacleSize.h
+                 this.blockPosition.x,
+                 this.blockPosition.y,
+                 this.blockSize.w,
+                 this.blockSize.h
                  );
+            this.ctx.fillText(this.word, this.blockPosition.x, this.blockPosition.y)
          console.log('me muevo');
             this.move();
         }
 
         move() {
-            this.obstaclePosition.y += this.speed;
+            this.blockPosition.y += this.speed;
         }
 }

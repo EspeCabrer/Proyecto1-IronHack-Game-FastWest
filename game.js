@@ -37,7 +37,7 @@ const game = {
                 this.framesCounter ++
 
                 if(this.framesCounter % 100 === 0) {
-                    this.createObstacle()
+                    this.createBlock(this.blocks.length)
                 }    
             }, 1000 / 60);
         },
@@ -49,25 +49,33 @@ const game = {
         drawAll(){
             this.blocks.forEach(block => block.draw());
 
+         //fillText("hola", this.po)
+
             this.showScores();
         },
 
-        createObstacle() {
+        createBlock(word) {
             const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
             const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
             const xRandomPosition = Math.trunc(Math.random() * (this.canvasSize.w - 100))
         
-            const newObstacle = new block(
+            const newBlock = new block(
               this.ctx,
               randomWidth,
               randomHeight,
               this.canvasSize,
               xRandomPosition,
-              this.speed
+              this.speed,
+              word
             );
         
-            this.blocks.push(newObstacle);
+            this.blocks.push(newBlock);
         },
+
+        // wordsBlocks(){
+        //     let randomWord = randomWord(oneLetter)
+        //     this.ctx.fillText = (randomWord, 100,30)
+        // },
 
         showScores() {
            // show scores
@@ -75,4 +83,5 @@ const game = {
             this.ctx.fillStyle = 'black';
             this.ctx.fillText('Score: ' + this.score, 300, 90);
         }
+
 }
