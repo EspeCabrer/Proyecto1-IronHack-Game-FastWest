@@ -19,7 +19,6 @@ class block {
                  this.blockSize.h
                  );
             this.ctx.fillText(this.word, this.blockPosition.x, this.blockPosition.y)
-         console.log('me muevo');
             this.move();
         }
 

@@ -5,6 +5,7 @@ const game = {
             h: undefined
             },
         blocks: [],
+        currentBlock: undefined,
         intervalId: undefined,
         framesCounter: 0,
         speed: 2,
@@ -13,6 +14,7 @@ const game = {
         init(canvas){
             this.setContext(canvas);
             this.setCanvasDimensions(canvas);
+            this.setListeners()
             this.gameStart();
             console.log("initCanvas")
         },
@@ -37,7 +39,8 @@ const game = {
                 this.framesCounter ++
 
                 if(this.framesCounter % 100 === 0) {
-                    this.createBlock(this.blocks.length)
+                    this.createBlock(randomWord(oneLetter))
+                
                 }    
             }, 1000 / 60);
         },
@@ -49,7 +52,7 @@ const game = {
         drawAll(){
             this.blocks.forEach(block => block.draw());
 
-         //fillText("hola", this.po)
+         
 
             this.showScores();
         },
@@ -66,22 +69,33 @@ const game = {
               this.canvasSize,
               xRandomPosition,
               this.speed,
-              word
+              word 
             );
         
             this.blocks.push(newBlock);
+
+            if (this.currentBlock === undefined) {
+                this.currentBlock = this.blocks[0];
+              
+            }
         },
 
-        // wordsBlocks(){
-        //     let randomWord = randomWord(oneLetter)
-        //     this.ctx.fillText = (randomWord, 100,30)
-        // },
 
         showScores() {
            // show scores
             this.ctx.font = '25px Verdana';
             this.ctx.fillStyle = 'black';
             this.ctx.fillText('Score: ' + this.score, 300, 90);
-        }
+        },
 
-}
+
+    // Evento pulsar la tecla
+         setListeners() {
+             document.addEventListener('keydown', (e) => {
+                 let keyCode = e.key
+                 if (keyCode >= 'a' && keyCode <= 'z'){
+                 console.log(keyCode);     
+                 }
+             })
+         },
+} 
