@@ -7,16 +7,20 @@ const game = {
         blocks: [],
         currentBlock: undefined,
         wordPos: 0,               // Posición de la letra que se chequea
-        currentWord: undefined,
         intervalId: undefined,
         framesCounter: 0,
         speed: 2,
         score: 0,
+        level: 0,
+        live: 3,
+
     
 
         init(canvas){
             this.setContext(canvas);
             this.setCanvasDimensions(canvas);
+            this.imageLives = new Image()
+          //  this.imageLives.src = "/imagenes/iconGun.png"
             this.setListeners()
             this.gameStart();
             console.log("initCanvas")
@@ -58,6 +62,8 @@ const game = {
          
 
             this.showScores();
+            this.showLevel();
+         //   this.drawLives();
         },
 
         createBlock(word) {
@@ -88,40 +94,48 @@ const game = {
            // show scores
             this.ctx.font = '25px Verdana';
             this.ctx.fillStyle = 'black';
-            this.ctx.fillText('Score: ' + this.score, 300, 90);
+            this.ctx.fillText('Score: ' + this.score, 300, 40);
         },
 
+        showLevel(){
+            this.ctx.font = '25px Verdana';
+            this.ctx.fillStyle = 'black';
+            this.ctx.fillText('Level: ' + this.level, 20, 40)
+        },
+
+        /*  drawLives(){
+            this.ctx.drawImage(this.drawLives, 500, 500)
+        }, */
+ 
 
     // Evento pulsar la tecla
          setListeners() {
              document.addEventListener('keydown', (e) => {
                  let pressedKey = e.key
                  if (pressedKey >= 'a' && pressedKey <= 'z'){
-                 console.log(pressedKey);  
-                 this.checkLetter(pressedKey);
-                 this.checkWord()
+                    let currentWord = this.currentBlock.word;
+                    this.checkLetter(pressedKey, currentWord);
+                    this.checkWord(currentWord)
                  }
              })
          },
 
-         checkLetter(pressedKey){
-             this.currentWord = this.currentBlock.word;
-             if (pressedKey === this.currentWord[this.wordPos]) {
-                this.wordPos +=1;
+         checkLetter(pressedKey, currentWord){
+             if (pressedKey === currentWord[this.wordPos]) {
+                this.wordPos += 1;
             } else {
                 this.wordPos = 0;
             }
-            console.log("currentWord", this.currentWord)
+            console.log("currentWord", currentWord)
             console.log("currentBlockWord", this.currentBlock.word)
         }, 
         
-         checkWord() {
-            if (this.currentWord.length === this.wordPos) {
+         checkWord(currentWord) {
+            if (currentWord.length === this.wordPos) {
                 this.blocks.shift()
                 this.currentBlock = this.blocks[0]
-            
+                this.wordPos = 0;
              }
-             console.log("BlockArr", this.blocks)
          }
 }
 

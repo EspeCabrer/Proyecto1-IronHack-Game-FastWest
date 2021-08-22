@@ -4,10 +4,8 @@
     box-sizing: border-box;
 }
 body{
-    /* background-image: url(/imagenes/fondo.jpeg); */
     background-size: 100% 100%;
     background-image: url(/imagenes/fondo\ madera1.jpeg);
-    background-image: center center no-repeat;
     display: flex;
     flex-direction: column;
 }
