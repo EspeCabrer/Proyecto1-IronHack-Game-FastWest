@@ -12,14 +12,17 @@ const game = {
         speed: 2,
         score: 0,
         level: 1,
-        live: 3,
+        lives: 3,
+        imageLive1: undefined,
+        imageLive2: undefined,
+        imageLive3: undefined,
 
     
 
         init(canvas){
             this.setContext(canvas);
             this.setCanvasDimensions(canvas);
-            this.imageLives = new Image()
+          //  this.imageLives = new Image()
           //  this.imageLives.src = "/imagenes/iconGun.png"
             this.setListeners()
             this.gameStart();
@@ -40,6 +43,8 @@ const game = {
 
         gameStart(){
             this.intervalId = setInterval(() => {
+                this.checkIfCollision()
+                console.log("lives: " + this.lives)
                 this.clearCanvas()
                 this.drawAll()
 
@@ -63,7 +68,7 @@ const game = {
 
             this.showScores();
             this.showLevel();
-         //   this.drawLives();
+            this.drawLives();
         },
 
         createBlock(word) {
@@ -105,9 +110,30 @@ const game = {
             this.ctx.fillText('Level: ' + this.level, 20, 40)
         },
 
-        /*  drawLives(){
-            this.ctx.drawImage(this.drawLives, 500, 500)
-        }, */
+         drawLives(){
+            this.imageLive1 = new Image()
+            this.imageLive1.src = "/imagenes/iconGun.png"
+            this.imageLive2 = new Image()
+            this.imageLive2.src = "/imagenes/iconGun.png"
+            this.imageLive3 = new Image()
+            this.imageLive3.src = "/imagenes/iconGun.png"
+
+             if (this.lives === 1) {
+            this.ctx.drawImage(this.imageLive1, 30, 630)
+            };
+
+            if (this.lives === 2) {
+                this.ctx.drawImage(this.imageLive1, 30, 630)
+                this.ctx.drawImage(this.imageLive2, 80, 630)
+            }
+
+            if(this.lives === 3) {
+                this.ctx.drawImage(this.imageLive1, 30, 630)
+                this.ctx.drawImage(this.imageLive2, 80, 630)
+                this.ctx.drawImage(this.imageLive3, 130, 630)
+
+            }
+        }, 
  
 
     // Evento pulsar la tecla
@@ -128,8 +154,6 @@ const game = {
             } else {
                 this.wordPos = 0;
             }
-            console.log("currentWord", currentWord)
-            console.log("currentBlockWord", this.currentBlock.word)
         }, 
         
          checkWord(currentWord) {
@@ -154,6 +178,25 @@ const game = {
 
          updateScore(){
              this.score += this.level * 10
+         },
+
+         checkIfCollision(){
+             if(this.currentBlock !== undefined){
+                  if (this.currentBlock.blockPosition.y === this.canvasSize.h) {
+                     this.blocks.shift()
+                     this.currentBlock = this.blocks[0]
+                     this.wordPos = 0; 
+                     this.lives -= 1 
+                     this.checkLives()
+                    }
+              }
+         },
+
+         checkLives(){
+             if (this.lives === 0)
+             console.log("game Over")
          }
+
+
 }
 

@@ -16,6 +16,8 @@ window.onload = () => {
     document.getElementById("screen").innerHTML = '<canvas id="canvas" widht = "400" height ="400"></canvas>'
 }
 
+function gameOver()
+
 
 //Borrar screen
 
