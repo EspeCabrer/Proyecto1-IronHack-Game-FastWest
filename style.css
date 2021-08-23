@@ -32,12 +32,7 @@ body{
 
 }
 
-.gameOverBg {
-    background-image: url(/imagenes/GameOverScreen.jpeg);
-    background-size: 100%;
-    border: 10px solid rgb(78, 57, 30);
-    border-radius: 15%;
-}
+
 
 .logo {
     font-size: 8em;
@@ -64,7 +59,51 @@ canvas {
     border: 2px solid rgb(119, 88, 48);
     background-color:wheat;
     opacity: 80%;
-    margin: 30px 250px 30px 250px;
+    margin: 30px 250px 30px 250px;    
+}
 
+/* Game Over Screen */
+.gameOverBg {
+    background-image: url(/imagenes/GameOverScreen.jpeg);
+    background-size: 100%;
+    border: 10px solid rgb(78, 57, 30);
+    border-radius: 15%;
+    font-family: fantasy;
+}
 
+.gameOver {
+    background-color: rgb(78, 57, 30);
+    opacity: 70%;
+    height: 100px;;
+}
+.gameOver>h4{
+    font-size: 90px;
+    color: whitesmoke;
+    font-variant-ligatures:initial;
+}
+
+.score {
+    font-size: 40px;
+    background-color: rgb(78, 57, 30);
+    opacity: 70%;
+    color:whitesmoke;
+}
+
+.restart-btn{
+    background-color: rgb(78, 57, 30);
+    opacity: 70%;
+
+}
+
+.restart-btn>button{
+    height: 60px;
+    width: 200px;
+    font-size: 35px;
+    text-align: center;
+    font-family: fantasy;
+    color: black;
+    margin: 30px;
+    background-image: url(/imagenes/texturaMaderaClara1.jpeg);
+    border: 3px solid rgb(78, 57, 30);
+    margin-top: px;
 }
