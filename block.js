@@ -18,8 +18,10 @@ class block {
                  this.blockSize.w,
                  this.blockSize.h
                  );
-            this.ctx.fillText(this.word, this.blockPosition.x, this.blockPosition.y)
-            this.move();
+             this.ctx.fillStyle = 'orange',
+           //  this.ctx.textAlign = ,
+             this.ctx.fillText(this.word, (this.blockPosition.x + (this.blockSize.w/3)), (this.blockPosition.y + 27))
+             this.move();
         }
 
         move() {

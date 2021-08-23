@@ -11,7 +11,7 @@ const game = {
         framesCounter: 0,
         speed: 2,
         score: 0,
-        level: 0,
+        level: 1,
         live: 3,
 
     
@@ -46,7 +46,7 @@ const game = {
                 this.framesCounter ++
 
                 if(this.framesCounter % 100 === 0) {
-                    this.createBlock(randomWord(oneLetter))
+                    this.createBlock(randomWord(twoLetter))
                 
                 }    
             }, 100 );
@@ -67,14 +67,16 @@ const game = {
         },
 
         createBlock(word) {
-            const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
-            const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
+          //  const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
+          //  const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
+            const width = 150
+            const height = 40
             const xRandomPosition = Math.trunc(Math.random() * (this.canvasSize.w - 100))
         
             const newBlock = new block(
               this.ctx,
-              randomWidth,
-              randomHeight,
+              width,
+              height,
               this.canvasSize,
               xRandomPosition,
               this.speed,
@@ -132,10 +134,26 @@ const game = {
         
          checkWord(currentWord) {
             if (currentWord.length === this.wordPos) {
-                this.blocks.shift()
+              /*   this.blocks.shift()
                 this.currentBlock = this.blocks[0]
-                this.wordPos = 0;
+                this.wordPos = 0; */
+                this.deleteBlock();
+                this.updateScore();
+                console.log(this.score)
+           //     this.score += this.level * 10
+
+
              }
+         },
+
+         deleteBlock(){
+            this.blocks.shift()
+            this.currentBlock = this.blocks[0]
+            this.wordPos = 0; 
+         },
+
+         updateScore(){
+             this.score += this.level * 10
          }
 }
 
