@@ -12,7 +12,7 @@ const game = {
         speed: 2,
         score: 0,
         level: 1,
-        lives: 3,
+        lives: 1,
         imageLive1: undefined,
         imageLive2: undefined,
         imageLive3: undefined,
@@ -55,7 +55,7 @@ const game = {
                     this.createBlock(randomWord(twoLetter))
                 
                 }    
-            }, 100 );
+            }, 1000/60 );
         },
 
         clearCanvas() {
@@ -196,13 +196,21 @@ const game = {
          checkLives(){
              if (this.lives === 0){
              console.log("gameOver")
+             clearInterval(this.intervalId);
              this.gameOver();
              }
          },
 
          gameOver() {
-            document.getElementById("screen").innerHTML =
-            '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div class ="score">  Score=</p></div> <div class= "start-btn"><button id="restart" type="button">REINTENTAR</button></div>'
+            //Cambiar classe del elemento Div #screen de .pergaminoBg a .gameOverBg
+            let elementScreen = document.getElementById("screen")
+
+            elementScreen.className = "gameOverBg";
+            elementScreen.innerHTML =  '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div class ="score">  Score=</p></div> <div class= "start-btn"><button id="restart" type="button">REINTENTAR</button></div>'
+
+
+           /*  document.getElementById("screen").innerHTML =
+            '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div class ="score">  Score=</p></div> <div class= "start-btn"><button id="restart" type="button">REINTENTAR</button></div>' */
         }
 
 
