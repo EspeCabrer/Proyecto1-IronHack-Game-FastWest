@@ -44,6 +44,7 @@ const game = {
         gameStart(){
             this.intervalId = setInterval(() => {
                 this.checkIfCollision()
+
                 console.log("lives: " + this.lives)
                 this.clearCanvas()
                 this.drawAll()
@@ -193,9 +194,16 @@ const game = {
          },
 
          checkLives(){
-             if (this.lives === 0)
-             console.log("game Over")
-         }
+             if (this.lives === 0){
+             console.log("gameOver")
+             this.gameOver();
+             }
+         },
+
+         gameOver() {
+            document.getElementById("screen").innerHTML =
+            '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div class ="score">  Score=</p></div> <div class= "start-btn"><button id="restart" type="button">REINTENTAR</button></div>'
+        }
 
 
 }
