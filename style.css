@@ -82,7 +82,7 @@ canvas {
     font-variant-ligatures:initial;
 }
 
-.score {
+#score {
     font-size: 40px;
     background-color: rgb(78, 57, 30);
     opacity: 70%;
@@ -92,6 +92,7 @@ canvas {
 .restart-btn{
     background-color: rgb(78, 57, 30);
     opacity: 70%;
+    border: 40px;
 
 }
 
@@ -104,6 +105,6 @@ canvas {
     color: black;
     margin: 30px;
     background-image: url(/imagenes/texturaMaderaClara1.jpeg);
-    border: 3px solid rgb(78, 57, 30);
+    border: 5px solid rgb(78, 57, 30);
     margin-top: px;
 }

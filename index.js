@@ -8,7 +8,16 @@ window.onload = () => {
         const canvas = document.querySelector("#canvas")
         game.init(canvas)
     }
-}
+};
+//No funciona//
+
+/* document.getElementById("restart").onclick = () => {
+        console.log("clic restart")
+        createCanvas()
+        const canvas = document.querySelector("#canvas")
+        game.init(canvas)
+     }  */
+
 
 // Crear canvas
 

@@ -12,7 +12,7 @@ const game = {
         speed: 2,
         score: 0,
         level: 1,
-        lives: 1,
+        lives: 3,
         imageLive1: undefined,
         imageLive2: undefined,
         imageLive3: undefined,
@@ -203,16 +203,40 @@ const game = {
 
          gameOver() {
             //Cambiar classe del elemento Div #screen de .pergaminoBg a .gameOverBg
-            let elementScreen = document.getElementById("screen")
+            let screenElement = document.getElementById("screen")
 
-            elementScreen.className = "gameOverBg";
-            elementScreen.innerHTML =  '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div class ="score">  Score=</p></div> <div class= "restart-btn"><button id="restart" type="button">Play Again</button></div>'
+            screenElement.className = "gameOverBg";
+            screenElement.innerHTML =  '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div id ="score">  Score=</p></div> <div class= "restart-btn"><button id="restart" type="button">Play Again</button></div>'
 
-
-           /*  document.getElementById("screen").innerHTML =
-            '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div class ="score">  Score=</p></div> <div class= "start-btn"><button id="restart" type="button">REINTENTAR</button></div>' */
+            let scoreElement = document.getElementById("score")
+            scoreElement.innerHTML = "Score: "+ this.score;
+            restart()
         }
-
 
 }
 
+        function restart() {
+            document.getElementById("restart").onclick = () => {
+                let screenElement = document.getElementById("screen") 
+                screenElement.className = "pergaminoBg";
+                resetValues();
+                createCanvas();
+                const canvas = document.querySelector("#canvas")
+                game.init(canvas)
+         }
+        }
+
+        function resetValues() {
+            game.blocks = [],
+            game.currentBlock = undefined,
+            game.wordPos = 0,               // Posición de la letra que se chequea
+            game.intervalId = undefined,
+            game.framesCounter = 0,
+            game.speed = 2,
+            game.score = 0,
+            game.level = 1,
+            game.lives = 3,
+            game.imageLive1 = undefined,
+            game.imageLive2 = undefined,
+            game.imageLive3 = undefined
+        }
