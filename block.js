@@ -8,9 +8,14 @@ class block {
         this.imageInstance = new Image();
         this.imageInstance.src = "/imagenes/textura madera.jpeg"
         this.word = word
+        this.highlightWord = "" // Letras pulsadas que coinciden con las letras asignadas al bloque.
+        
      }
 
         draw() {
+            let wordPositionX = (this.blockPosition.x + (this.blockSize.w/3));
+            let wordPositionY = (this.blockPosition.y + 27);
+
             this.ctx.drawImage(
                  this.imageInstance,
                  this.blockPosition.x,
@@ -18,13 +23,18 @@ class block {
                  this.blockSize.w,
                  this.blockSize.h
                  );
+
+            // Palabras asignadas a los bloques
              this.ctx.fillStyle = 'orange',
-           //  this.ctx.textAlign = ,
-             this.ctx.fillText(this.word, (this.blockPosition.x + (this.blockSize.w/3)), (this.blockPosition.y + 27))
+             this.ctx.fillText(this.word, wordPositionX, wordPositionY)
+             
+             // Letras pulsadas que coinciden con la palabra del bloque
+             this.ctx.fillStyle = "green"
+             this.ctx.fillText(this.highlightWord, wordPositionX, wordPositionY) 
              this.move();
         }
 
         move() {
             this.blockPosition.y += this.speed;
         }
-}
+    }

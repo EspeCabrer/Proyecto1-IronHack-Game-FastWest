@@ -6,7 +6,7 @@ const game = {
             },
         blocks: [],
         currentBlock: undefined,
-        wordPos: 0,               // Posición de la letra que se chequea
+        wordPos: 0,               // Posición de la letra que se comprueba
         intervalId: undefined,
         framesCounter: 0,
         speed: 2,
@@ -17,7 +17,7 @@ const game = {
         imageLive2: undefined,
         imageLive3: undefined,
 
-    
+
 
         init(canvas){
             this.setContext(canvas);
@@ -44,8 +44,6 @@ const game = {
         gameStart(){
             this.intervalId = setInterval(() => {
                 this.checkIfCollision()
-
-                console.log("lives: " + this.lives)
                 this.clearCanvas()
                 this.drawAll()
 
@@ -55,7 +53,7 @@ const game = {
                     this.createBlock(randomWord(twoLetter))
                 
                 }    
-            }, 1000/60 );
+            }, 100 );
         },
 
         clearCanvas() {
@@ -141,20 +139,26 @@ const game = {
          setListeners() {
              document.addEventListener('keydown', (e) => {
                  let pressedKey = e.key
+                 console.log("pressedKey: "+ pressedKey)
                  if (pressedKey >= 'a' && pressedKey <= 'z'){
                     let currentWord = this.currentBlock.word;
                     this.checkLetter(pressedKey, currentWord);
-                    this.checkWord(currentWord)
+                    this.checkWord(currentWord);
                  }
              })
          },
 
          checkLetter(pressedKey, currentWord){
+            this.currentBlock.highlightWord += `${pressedKey}`
+
              if (pressedKey === currentWord[this.wordPos]) {
                 this.wordPos += 1;
             } else {
                 this.wordPos = 0;
+                this.currentBlock.highlightWord = "";
             }
+            console.log("HighlightWord " + this.currentBlock.highlightWord)
+    
         }, 
         
          checkWord(currentWord) {
@@ -164,12 +168,16 @@ const game = {
                 this.wordPos = 0; */
                 this.deleteBlock();
                 this.updateScore();
-                console.log(this.score)
+                this.currentBlock.highlightWord = "";
            //     this.score += this.level * 10
 
 
              }
          },
+
+       /*   drawPressedLetters(){
+             this.ctx.fillText(pressedLetters,)
+         } */
 
          deleteBlock(){
             this.blocks.shift()
