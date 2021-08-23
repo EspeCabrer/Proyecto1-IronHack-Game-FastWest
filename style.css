@@ -1,8 +1,15 @@
+@font-face {
+    font-family: "reward";
+    src: url("/reward/reward.ttf");
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     background-size: 100% 100%;
     background-image: url(/imagenes/fondo\ madera1.jpeg);
@@ -32,20 +39,42 @@ body{
 
 }
 
+.CowboyStars {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 0 80px 10px 80px;
+}
+
+.star {
+    height: 30px;
+    text-align: center;
+}
 
 
 .logo {
-    font-size: 8em;
-    font-family: fantasy;
+    font-size: 7em;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rye', cursive;
+    margin-top: 20px
 }
+
+.cowboy {
+    width: 100px;
+    text-align: center;
+}
+
 .descr{
     font-family: fantasy;
     font-size: 1.5em;
 }
 
+.start-btn>img {
+    width: 40px;
+}
 
 .start-btn>button {
-    background-image: url("/imagenes/textura madera.jpeg");
+    background-image: url(/imagenes/texturaMaderaOscura.jpeg);
     height: 60px;
     width: 200px;
     font-size: 35px;
