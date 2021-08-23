@@ -94,8 +94,8 @@ canvas {
 /* Game Over Screen */
 .gameOverBg {
     background-image: url(/imagenes/GameOverScreen.jpeg);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     border: 10px solid rgb(78, 57, 30);
     border-radius: 15%;
     font-family: fantasy;
@@ -129,9 +129,11 @@ canvas {
 .restart-btn>button{
     height: 60px;
     width: 200px;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     font-family: fantasy;
+    font-weight: bold;
+    padding-top: 8px;
     color: black;
     margin: 30px;
     background-image: url(/imagenes/texturaMaderaClara1.jpeg);

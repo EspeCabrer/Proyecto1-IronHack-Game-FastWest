@@ -206,7 +206,7 @@ const game = {
             let screenElement = document.getElementById("screen")
 
             screenElement.className = "gameOverBg";
-            screenElement.innerHTML =  '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div id ="score">  Score=</p></div> <div class= "restart-btn"><button id="restart" type="button">Play Again</button></div>'
+            screenElement.innerHTML =  '<div class="gameOver"> <h4>GAME OVER</h4>  </div> <div id ="score">  Score=</p></div> <div class= "restart-btn"><button id="restart" type="button">TRY AGAIN</button></div>'
 
             let scoreElement = document.getElementById("score")
             scoreElement.innerHTML = "Score: "+ this.score;
