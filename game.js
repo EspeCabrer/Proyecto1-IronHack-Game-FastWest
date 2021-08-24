@@ -224,7 +224,9 @@ const game = {
 
             let scoreElement = document.getElementById("score")
             scoreElement.innerHTML = "Score: "+ this.score;
-            restart()
+            restart();
+            pauseInitAudio();
+            playFinalAudio();
         },
 
         levelUp(){
@@ -244,6 +246,8 @@ const game = {
                 createCanvas();
                 const canvas = document.querySelector("#canvas")
                 game.init(canvas)
+                pauseFinalAudio()
+                playInitAudio();
          }
         }
 
