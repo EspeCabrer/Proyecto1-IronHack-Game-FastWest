@@ -7,16 +7,9 @@ window.onload = () => {
         createCanvas()
         const canvas = document.querySelector("#canvas")
         game.init(canvas)
+        game.setListeners();
     }
 };
-//No funciona//
-
-/* document.getElementById("restart").onclick = () => {
-        console.log("clic restart")
-        createCanvas()
-        const canvas = document.querySelector("#canvas")
-        game.init(canvas)
-     }  */
 
 
 // Crear canvas
@@ -25,13 +18,3 @@ window.onload = () => {
     document.getElementById("screen").innerHTML = '<canvas id="canvas" widht = "400" height ="400"></canvas>'
 }
 
-
-
-
-//Borrar screen
-
-/* function deleteScreen(container) {
-    let screenContainer = document.getElementsByClassName("screen") 
-    screenContainer.innerHTML = container
-}
-  */

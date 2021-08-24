@@ -6,6 +6,7 @@ const game = {
             },
         blocks: [],
         currentBlock: undefined,
+        currentWord: undefined, 
         destroyedsBlock: 0,
         wordPos: 0,               // Posición de la letra que se comprueba
         intervalId: undefined,
@@ -23,9 +24,6 @@ const game = {
         init(canvas){
             this.setContext(canvas);
             this.setCanvasDimensions(canvas);
-          //  this.imageLives = new Image()
-          //  this.imageLives.src = "/imagenes/iconGun.png"
-            this.setListeners()
             this.gameStart();
             console.log("initCanvas")
         },
@@ -142,7 +140,7 @@ const game = {
                  let pressedKey = e.key
                  console.log("pressedKey: "+ pressedKey)
                  if (pressedKey >= 'a' && pressedKey <= 'z'){
-                    let currentWord = this.currentBlock.word;
+                    currentWord = this.currentBlock.word;
                     this.checkLetter(pressedKey, currentWord);
                     this.checkWord(currentWord);
                  }
@@ -245,10 +243,14 @@ const game = {
         }
 
         function resetValues() {
+            game.ctx = undefined,
+            game.canvasSize.w = undefined,
+            game.canvasSize.y = undefined,
             game.blocks = [],
             game.currentBlock = undefined,
+            game.currentWord = undefined, 
             game.destroyedsBlock = 0,
-            game.wordPos = 0,               // Posición de la letra que se chequea
+            game.wordPos = 0,               // Posición de la letra que se comprueba
             game.intervalId = undefined,
             game.framesCounter = 0,
             game.speed = 2,
@@ -257,6 +259,7 @@ const game = {
             game.lives = 3,
             game.imageLive1 = undefined,
             game.imageLive2 = undefined,
-            game.imageLive3 = undefined
+            game.imageLive3 = undefined,
+            block.highlightWord = ""
         }
     
