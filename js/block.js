@@ -13,23 +13,28 @@ class block {
      }
 
         draw() {
-            let wordPositionX = (this.blockPosition.x + (this.blockSize.w/3));
+            let wordPositionX = (this.blockPosition.x + 20);
             let wordPositionY = (this.blockPosition.y + 27);
 
-            this.ctx.drawImage(
+             this.ctx.drawImage(
                  this.imageInstance,
                  this.blockPosition.x,
                  this.blockPosition.y,
                  this.blockSize.w,
                  this.blockSize.h
-                 );
+                 ); 
 
             // Palabras asignadas a los bloques
-             this.ctx.fillStyle = 'orange',
+             this.ctx.fillStyle = "white",
+             this.ctx.font = "40px"
              this.ctx.fillText(this.word, wordPositionX, wordPositionY)
              
-             // Letras pulsadas que coinciden con la palabra del bloque
-             this.ctx.fillStyle = "green"
+             // Letras pulsadas que coinciden con la palabra del bloque.
+             // Color verde => #73FE69
+             // Color naranja => #FFAF46
+
+             this.ctx.fillStyle = "#FFAF46"
+             this.ctx.font = "40px"
              this.ctx.fillText(this.highlightWord, wordPositionX, wordPositionY) 
              this.move();
         }
