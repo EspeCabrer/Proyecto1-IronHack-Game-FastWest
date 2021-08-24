@@ -49,7 +49,7 @@ const game = {
                 this.framesCounter ++
 
                 if(this.framesCounter % 100 === 0) {
-                    this.createBlock(randomWord(2))
+                     this.createBlock(randomWordLevel())
                 
                 }    
             }, 1000 / 60 );
@@ -227,8 +227,7 @@ const game = {
             if (this.destroyedsBlock % 10 === 0) {
                 this.level +=1
             }
-        }
-
+        },
 }
 
         function restart() {
