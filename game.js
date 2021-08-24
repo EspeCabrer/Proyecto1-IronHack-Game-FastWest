@@ -193,10 +193,16 @@ const game = {
              if(this.currentBlock !== undefined){
                   if (this.currentBlock.blockPosition.y === this.canvasSize.h) {
                      this.blocks.shift()
+                     this.blocks.shift()
+                     this.blocks.shift()
+                     this.blocks.shift()
+                     this.blocks.shift()
                      this.currentBlock = this.blocks[0]
+                     this.blocks = [ ]
                      this.wordPos = 0; 
                      this.lives -= 1 
                      this.checkLives()
+                     playGunSound()
                     }
               }
          },
