@@ -6,6 +6,7 @@ const game = {
             },
         blocks: [],
         currentBlock: undefined,
+        destroyedsBlock: 0,
         wordPos: 0,               // Posición de la letra que se comprueba
         intervalId: undefined,
         framesCounter: 0,
@@ -50,10 +51,10 @@ const game = {
                 this.framesCounter ++
 
                 if(this.framesCounter % 100 === 0) {
-                    this.createBlock(randomWord(twoLetter))
+                    this.createBlock(randomWord(2))
                 
                 }    
-            }, 100 );
+            }, 1000 / 60 );
         },
 
         clearCanvas() {
@@ -170,10 +171,9 @@ const game = {
                 this.updateScore();
                 this.currentBlock.highlightWord = "";
            //     this.score += this.level * 10
-
-
              }
-         },
+         }, 
+         
 
        /*   drawPressedLetters(){
              this.ctx.fillText(pressedLetters,)
@@ -183,6 +183,8 @@ const game = {
             this.blocks.shift()
             this.currentBlock = this.blocks[0]
             this.wordPos = 0; 
+            this.levelUp();
+            console.log(this.destroyedsBlock)
          },
 
          updateScore(){
@@ -219,6 +221,14 @@ const game = {
             let scoreElement = document.getElementById("score")
             scoreElement.innerHTML = "Score: "+ this.score;
             restart()
+        },
+
+        levelUp(){
+            this.destroyedsBlock +=1;
+
+            if (this.destroyedsBlock % 10 === 0) {
+                this.level +=1
+            }
         }
 
 }
@@ -237,6 +247,7 @@ const game = {
         function resetValues() {
             game.blocks = [],
             game.currentBlock = undefined,
+            game.destroyedsBlock = 0,
             game.wordPos = 0,               // Posición de la letra que se chequea
             game.intervalId = undefined,
             game.framesCounter = 0,
@@ -248,3 +259,4 @@ const game = {
             game.imageLive2 = undefined,
             game.imageLive3 = undefined
         }
+    
