@@ -15,13 +15,10 @@ const game = {
         score: 0,
         level: 1,
         lives: 3,
-        imageLive1: undefined,
-        imageLive2: undefined,
-        imageLive3: undefined,
+        liveImg: undefined,
         helpBomb: 3,
-        imageBomb1: undefined,
-        imageBomb2: undefined,
-        imageBomb3: undefined,
+        bombImg: undefined,
+    
 
 
 
@@ -113,50 +110,42 @@ const game = {
         },
 
          drawLives(){
-            this.imageLive1 = new Image()
-            this.imageLive1.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconGun.png"
-            this.imageLive2 = new Image()
-            this.imageLive2.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconGun.png"
-            this.imageLive3 = new Image()
-            this.imageLive3.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconGun.png"
-
-             if (this.lives === 1) {
-            this.ctx.drawImage(this.imageLive1, 30, 630)
+            this.liveImg = new Image()
+            this.liveImg.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconGun.png"
+            
+            if (this.lives === 1) {
+                this.ctx.drawImage(this.liveImg, 30, 630)
             };
 
             if (this.lives === 2) {
-                this.ctx.drawImage(this.imageLive1, 30, 630)
-                this.ctx.drawImage(this.imageLive2, 80, 630)
+                this.ctx.drawImage(this.liveImg, 30, 630)
+                this.ctx.drawImage(this.liveImg, 80, 630)
             }
 
-            if(this.lives === 3) {
-                this.ctx.drawImage(this.imageLive1, 30, 630)
-                this.ctx.drawImage(this.imageLive2, 80, 630)
-                this.ctx.drawImage(this.imageLive3, 130, 630)
+            if (this.lives === 3) {
+                this.ctx.drawImage(this.liveImg, 30, 630)
+                this.ctx.drawImage(this.liveImg, 80, 630)
+                this.ctx.drawImage(this.liveImg, 130, 630)
             }
         }, 
 
         drawHelpBombs(){
-            this.imageBomb1 = new Image()
-            this.imageBomb1.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconBomb.png"
-            this.imageBomb2 = new Image()
-            this.imageBomb2.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconBomb.png"
-            this.imageBomb3 = new Image()
-            this.imageBomb3.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconBomb.png"
-
+            this.bombImg = new Image()
+            this.bombImg.src = "https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/iconBomb.png"
+           
             if (this.helpBomb === 1) {
-                this.ctx.drawImage(this.imageBomb1, 430, 630)
+                this.ctx.drawImage(this.bombImg, 430, 630)
                 };
     
             if (this.helpBomb === 2) {
-                this.ctx.drawImage(this.imageBomb1, 430, 630)
-                this.ctx.drawImage(this.imageBomb2, 380, 630)
+                this.ctx.drawImage(this.bombImg, 430, 630)
+                this.ctx.drawImage(this.bombImg, 380, 630)
                 }
     
             if(this.helpBomb === 3) {
-                this.ctx.drawImage(this.imageBomb1, 430, 630)
-                this.ctx.drawImage(this.imageBomb2, 380, 630)
-                this.ctx.drawImage(this.imageBomb3, 330, 630)
+                this.ctx.drawImage(this.bombImg, 430, 630)
+                this.ctx.drawImage(this.bombImg, 380, 630)
+                this.ctx.drawImage(this.bombImg, 330, 630)
                 }
         },
  
@@ -165,14 +154,12 @@ const game = {
          setListeners() {
              document.addEventListener('keydown', (e) => {
                  let pressedKey = e.key
-                 console.log("presedkeydeahora: "+ e.keyCode)
                  if (pressedKey >= 'a' && pressedKey <= 'z'){
                     currentWord = this.currentBlock.word;
                     this.checkLetter(pressedKey, currentWord);
                     this.checkWord(currentWord); 
                     } 
                 if (e.keyCode === 32) {
-                     console.log("bomba")
                         this.activateHelpBomb()
                  };
             })
@@ -241,7 +228,6 @@ const game = {
              this.currentBlock = this.blocks[0]
              currentWord = this.currentBlock.word;
              this.wordPos = 0;
-             console.log("atun")
              playBombSound();
              }
          },
