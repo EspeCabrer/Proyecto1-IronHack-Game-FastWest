@@ -18,6 +18,10 @@ const game = {
         imageLive1: undefined,
         imageLive2: undefined,
         imageLive3: undefined,
+        helpBomb: 3,
+        imageBomb1: undefined,
+        imageBomb2: undefined,
+        imageBomb3: undefined,
 
 
 
@@ -67,6 +71,7 @@ const game = {
             this.showScores();
             this.showLevel();
             this.drawLives();
+            this.drawHelpBombs();
         },
 
         createBlock(word) {
@@ -129,9 +134,32 @@ const game = {
                 this.ctx.drawImage(this.imageLive1, 30, 630)
                 this.ctx.drawImage(this.imageLive2, 80, 630)
                 this.ctx.drawImage(this.imageLive3, 130, 630)
-
             }
         }, 
+
+        drawHelpBombs(){
+            this.imageBomb1 = new Image()
+            this.imageBomb1.src = "/imagenes/iconBomb.png"
+            this.imageBomb2 = new Image()
+            this.imageBomb2.src = "/imagenes/iconBomb.png"
+            this.imageBomb3 = new Image()
+            this.imageBomb3.src = "/imagenes/iconBomb.png"
+
+            if (this.helpBomb === 1) {
+                this.ctx.drawImage(this.imageBomb1, 430, 630)
+                };
+    
+            if (this.helpBomb === 2) {
+                this.ctx.drawImage(this.imageBomb1, 430, 630)
+                this.ctx.drawImage(this.imageBomb2, 380, 630)
+                }
+    
+            if(this.helpBomb === 3) {
+                this.ctx.drawImage(this.imageBomb1, 430, 630)
+                this.ctx.drawImage(this.imageBomb2, 380, 630)
+                this.ctx.drawImage(this.imageBomb3, 330, 630)
+                }
+        },
  
 
     // Evento pulsar la tecla
@@ -142,9 +170,11 @@ const game = {
                  if (pressedKey >= 'a' && pressedKey <= 'z'){
                     currentWord = this.currentBlock.word;
                     this.checkLetter(pressedKey, currentWord);
-                    this.checkWord(currentWord);
+                    this.checkWord(currentWord); 
+                 } else if (pressedKey = " ") {
+                     this.activateHelpBomb()
                  }
-             })
+            })
          },
 
          checkLetter(pressedKey, currentWord){
@@ -213,6 +243,11 @@ const game = {
              clearInterval(this.intervalId);
              this.gameOver();
              }
+         },
+
+         activateHelpBomb(){
+             this.helpBomb -= 1,
+             this.blocks.shift()
          },
 
          gameOver() {
