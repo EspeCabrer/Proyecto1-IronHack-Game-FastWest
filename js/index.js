@@ -36,6 +36,12 @@ function playGunSound(){
      gunSound.play()
 }
 
+function playBombSound(){
+    let bombSound = document.getElementById("bomb-sound");
+    bombSound.currentTime = 0.3;
+    bombSound.play()
+}
+
 function playFinalAudio(){
     let finalMusic = document.getElementById("final-music");
     finalMusic.currentTime = 9;

@@ -173,7 +173,7 @@ const game = {
                     this.checkWord(currentWord); 
                  } else if (pressedKey = " ") {
                      this.activateHelpBomb()
-                 }
+                 };
             })
          },
 
@@ -246,8 +246,13 @@ const game = {
          },
 
          activateHelpBomb(){
+             if (this.helpBomb > 0){
              this.helpBomb -= 1,
              this.blocks.shift()
+             this.currentBlock = this.blocks[0]
+             currentWord = this.currentBlock.word;
+             playBombSound()
+             }
          },
 
          gameOver() {
