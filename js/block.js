@@ -6,7 +6,7 @@ class block {
         this.blockPosition = { x: position, y: -100 }
         this.speed = speed
         this.imageInstance = new Image();
-        this.imageInstance.src = "/imagenes/textura madera.jpeg"
+        this.imageInstance.src = "../imagenes/textura madera.jpeg"
         this.word = word
         this.highlightWord = "" // Letras pulsadas que coinciden con las letras asignadas al bloque.
         
