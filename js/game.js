@@ -114,11 +114,11 @@ const game = {
 
          drawLives(){
             this.imageLive1 = new Image()
-            this.imageLive1.src = "/imagenes/iconGun.png"
+            this.imageLive1.src = "../imagenes/iconGun.png"
             this.imageLive2 = new Image()
-            this.imageLive2.src = "/imagenes/iconGun.png"
+            this.imageLive2.src = "../imagenes/iconGun.png"
             this.imageLive3 = new Image()
-            this.imageLive3.src = "/imagenes/iconGun.png"
+            this.imageLive3.src = "../imagenes/iconGun.png"
 
              if (this.lives === 1) {
             this.ctx.drawImage(this.imageLive1, 30, 630)
@@ -138,11 +138,11 @@ const game = {
 
         drawHelpBombs(){
             this.imageBomb1 = new Image()
-            this.imageBomb1.src = "/imagenes/iconBomb.png"
+            this.imageBomb1.src = "../imagenes/iconBomb.png"
             this.imageBomb2 = new Image()
-            this.imageBomb2.src = "/imagenes/iconBomb.png"
+            this.imageBomb2.src = "../imagenes/iconBomb.png"
             this.imageBomb3 = new Image()
-            this.imageBomb3.src = "/imagenes/iconBomb.png"
+            this.imageBomb3.src = "../imagenes/iconBomb.png"
 
             if (this.helpBomb === 1) {
                 this.ctx.drawImage(this.imageBomb1, 430, 630)
