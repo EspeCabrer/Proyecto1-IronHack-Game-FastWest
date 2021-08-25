@@ -18,7 +18,7 @@ Github Pages: https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/
 - Javascript
 - Canvas
 
-## Autor
+## Autora
 
 [Espe Cabrer](https://www.linkedin.com/in/espe-cabrer-0a930011a/)
 
