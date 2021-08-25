@@ -4,8 +4,8 @@ const twoLetterArr = ["oa", "pu", "pi", "pe", "ox", "os", "oi", "oh", "oc", "no"
 const threeLetterArr = ["feo", "dar", "ver", "uso", "kit", "rol", "don", "paz", "luz", "ser", "que", "rey", "fea", "por", "fin", "con", "pan", "vez", "amo", "set", "eje", "mal", "hoy", "mar", "ira", "par", "fan", "ola", "uva", "ave", "ley", "red", "pez", "voz", "muy", "era", "tan", "tal", "oro", "son", "web", "zen","pie", "eco", "uno", "sed", "pro", "oso", "mes", "ego", "ojo", "oda", "gas", "haz", "ala", "sal", "aro", "gym", "eso", "wey", "mil", "gol", "bus","sol", "upa", "way", "bar", "oye" ]
 const fourLetterArr = ["acto", "baba", "bajo", "bala", "base", "caja", "cala", "dado", "deja", "edad", "ejem", "faja", "feos", "gato", "gafe", "haba", "hace", "idea", "idem", "java", "jazz", "laca", "loba", "mola", "mega", "nave", "nuez", "ogro", "onda", "plan", "pozo", "rape", "roca", "spot", "seta", "topo", "true", "uvis", "vaca", "vino", "yang", "yeso", "zinc"]
 const fiveLetterArr = ["ancla", "avena", "ambar", "bacon", "blusa", "bucle", "cloro", "crepe", "ciego", "drama", "droga", "diana", "ebrio", "enano", "etapa","flora", "fideo", "flaco", "galgo", "grado", "gente", "hobby", "hucha", "hueso", "idear", "ileso", "india","jugar", "julio", "labor", "luces", "logos", "micro", "medio", "muero", "norte", "nueva", "norma", "ocupa", "oveja", "omega", "pagos", "plata", "puedo", "queja", "radar", "rifle", "riera", "sidra", "sudar", "sport", "tecla", "techo", "trapo", "vocal", "vuelo", "votan"]
-const sixLetterArr = ["adapta", "atajar", "apagad", "blanca", "bocado", "bucles", "cabeza", "clavas", "cobaya", "diablo", "doblen", "dibujo", "efecto", "exacto", "equipo", "fabada", "fichad", "fiasco", "gofres", "grados", "global", "helado", "hocico", "hueles", "ignora", "idioma", "imitan", "jersey", "jirafa", "jugada", "llanto", "leches", "liando", "maceta", "muchos", "muecas", "nachos", "noches", "nombra", "ojitos", "oliera", "ondean", "pecado", "plagio", "psique", "guejas", "quemes", "reales", "robles", "suceso", "tiempo", "trampa", "tienda", "ubicar", "vacuno", "veinte", "volcad"]
-const sevenLetterArr =  ["conmigo", "trabajo", "segunda", "informe", "sistema", "encanta", "parecer", "acuerdo", "persona", "biaxial", "bobadas", "columna", "cultivo", "chulada", "dividir", "detecta", "danzaba", "exceder", "emigrar", "escasea", "firmeza", "festeja", "felices", "guiaron", "ganado", "golosos", "honesta", "hundido", "hojeaba", "influir", "ingenio", "inversa", "jornada", "juraron", "jaqueca", "letargo", "lechuza", "librado", "momento", "modular", "moflete", "nulidad", "nativos", "ocupado", "ofuscar", "oscilan", "pintado", "pomposo", "piragua", "quijote", "quieren", "ruidoso", "repeler", "recorte", "sublime", "suspiro", "sicario", "tributo", "tablero", "tortazo", "ubicado", "usuario", "unifica", "ventaja", "volumen", "volaste", "yugular", "zumbido"        ]     
+const sixLetterArr = ["adapta", "atajar", "apagad", "blanca", "bocado", "bucles", "cabeza", "clavas", "cobaya", "diablo", "doblen", "dibujo", "efecto", "exacto", "equipo", "fabada", "fichad", "fiasco", "gofres", "grados", "global", "helado", "hocico", "hueles", "ignora", "idioma", "imitan", "jersey", "jirafa", "jugada", "llanto", "leches", "liando", "maceta", "muchos", "muecas", "nachos", "noches", "nombra", "ojitos", "oliera", "ondean", "pecado", "plagio", "psique", "quemes", "reales", "robles", "suceso", "tiempo", "trampa", "tienda", "ubicar", "vacuno", "veinte", "volcad"]
+const sevenLetterArr =  ["conmigo", "trabajo", "segunda", "informe", "sistema", "encanta", "parecer", "acuerdo", "persona", "biaxial", "bobadas", "columna", "cultivo", "chulada", "dividir", "detecta", "danzaba", "exceder", "emigrar", "escasea", "firmeza", "festeja", "felices", "guiaron", "ganado", "golosos", "honesta", "hundido", "hojeaba", "influir", "ingenio", "inversa", "jornada", "juraron", "jaqueca", "letargo", "lechuza", "librado", "momento", "modular", "moflete", "nulidad", "nativos", "ocupado", "ofuscar", "oscilan", "pintado", "pomposo", "piragua", "quijote", "quieren", "ruidoso", "repeler", "recorte", "sublime", "suspiro", "sicario", "tributo", "tablero", "tortazo", "ubicado", "usuario", "unifica", "ventaja", "volumen", "volaste", "yugular", "zumbido"]     
 const eightLetterArr = ["asimismo", "absoluto", "bloquear", "brevedad", "complejo", "creativo", "desastre", "destacar", "esencial", "examinar", "fabricar", "frustrar", "generoso", "gratitud", "homenaje", "herencia", "infinito", "iluminar", "juventud", "jorobado", "kamikaze", "limpieza", "libertad", "magnitud", "motivado", "nebuloso", "nocturno", "original", "observar", "peculiar", "proyecto", "quedarse", "resolver", "respetar", "singular", "sostener", "tangible", "temprano", "universo", "utilidad", "voluntad", "variable", "zipizape"]
 const nineLetterArr = ["agradable", "actividad", "bicicleta", "bienestar","conflicto", "construir", "descender", "demostrar" ,"ejercicio", "existente", "fragmento", "fortaleza", "grandioso", "gabardina", "humanidad", "habitante", "incidente", "inherente", "jocosidad", "kilogramo", "laberinto", "localizar", "mecanismo", "movilidad", "nutriente", "nostalgia", "optimista", "organismo", "paciencia", "propiedad", "respuesta", "referente", "sustancia", "severidad", "templanza", "taciturno", "utensilio", "usurpador", "verdadero", "vehemente", "zarandear"]
 const tenLetterArr = ["argumentar", "apariencia", "barbaridad", "biblioteca", "componente", "consciente" ]
@@ -64,24 +64,5 @@ function randomWord(wordsLevelArr) {
         return randomWord(wordsL10Arr);
     }
     
-    } 
-    
-
- /* function randomWordLevel(){
-  if (game.level === 1) {
-     randomWord(wordsL1Arr);  
-  } else if (game.level === 2) {
-    randomWord(wordsL2Arr);
-  } else if (game.level === 3) {
-    randomWord(wordsL3Arr);
-  } else if (game.level === 4) {
-    randomWord(wordsL4Arr)
-  } else if (game.level === 5) {
-    randomWord(wordsL5Arr)
-  } else if (game.level === 6) {
-    randomWord(wordsL6Arr)
-  } else {console.log("proba proba")}
-} 
- */
-
+  } 
   

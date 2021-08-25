@@ -1,6 +1,4 @@
 
-// Al clickar start que aparezca canvas
-
 
 window.onload = () => {
     document.getElementById("start").onclick = () => {
@@ -13,9 +11,8 @@ window.onload = () => {
 };
 
 
-// Crear canvas
 
- function createCanvas() {
+function createCanvas() {
     document.getElementById("screen").innerHTML = '<canvas id="canvas" widht = "400" height ="400"></canvas>'
     
 }

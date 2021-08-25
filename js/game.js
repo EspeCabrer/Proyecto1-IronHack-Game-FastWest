@@ -53,8 +53,7 @@ const game = {
                 this.framesCounter ++
 
                 if(this.framesCounter % 100 === 0) {
-                     this.createBlock(randomWordLevel())
-                
+                     this.createBlock(randomWordLevel()) 
                 }    
             }, 1000 / 60 );
         },
@@ -77,7 +76,7 @@ const game = {
         createBlock(word) {
           //  const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
           //  const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
-            const width = 240
+            const width = 420
             const height = 40
             const xRandomPosition = Math.trunc(Math.random() * (this.canvasSize.w - width))
         
@@ -104,13 +103,13 @@ const game = {
            // show scores
             this.ctx.font = '25px Verdana';
             this.ctx.fillStyle = 'black';
-            this.ctx.fillText('Score: ' + this.score, 300, 40);
+            this.ctx.fillText('Score: ' + this.score, 20, 40);
         },
 
         showLevel(){
             this.ctx.font = '25px Verdana';
             this.ctx.fillStyle = 'black';
-            this.ctx.fillText('Level: ' + this.level, 20, 40)
+            this.ctx.fillText('Level: ' + this.level, 370, 40)
         },
 
          drawLives(){
@@ -192,21 +191,12 @@ const game = {
         
          checkWord(currentWord) {
             if (currentWord.length === this.wordPos) {
-              /*   this.blocks.shift()
-                this.currentBlock = this.blocks[0]
-                this.wordPos = 0; */
                 this.deleteBlock();
                 this.updateScore();
                 this.currentBlock.highlightWord = "";
-           //     this.score += this.level * 10
              }
          }, 
          
-
-       /*   drawPressedLetters(){
-             this.ctx.fillText(pressedLetters,)
-         } */
-
          deleteBlock(){
             this.blocks.shift()
             this.currentBlock = this.blocks[0]
@@ -251,12 +241,13 @@ const game = {
              this.blocks.shift()
              this.currentBlock = this.blocks[0]
              currentWord = this.currentBlock.word;
+             this.wordPos = 0;
              playBombSound()
              }
          },
 
          gameOver() {
-            //Cambiar classe del elemento Div #screen de .pergaminoBg a .gameOverBg
+            //Cambio clase del elemento Div #screen de .pergaminoBg a .gameOverBg
             let screenElement = document.getElementById("screen")
 
             screenElement.className = "gameOverBg";
@@ -269,7 +260,7 @@ const game = {
             playFinalAudio();
         },
 
-        levelUp(){
+         levelUp(){
             this.destroyedsBlock +=1;
 
             if (this.destroyedsBlock % 10 === 0) {
@@ -278,37 +269,41 @@ const game = {
         },
 }
 
-        function restart() {
-            document.getElementById("restart").onclick = () => {
-                let screenElement = document.getElementById("screen") 
-                screenElement.className = "pergaminoBg";
-                resetValues();
-                createCanvas();
-                const canvas = document.querySelector("#canvas")
-                game.init(canvas)
-                pauseFinalAudio()
-                playInitAudio();
-         }
-        }
+ function restart() {
+     document.getElementById("restart").onclick = () => {
+         let screenElement = document.getElementById("screen") 
+         screenElement.className = "pergaminoBg";
+         resetValues();
+         createCanvas();
+         const canvas = document.querySelector("#canvas")
+         game.init(canvas)
+         pauseFinalAudio()
+         playInitAudio();
+     }
+ }
 
-        function resetValues() {
-            game.ctx = undefined,
-            game.canvasSize.w = undefined,
-            game.canvasSize.y = undefined,
-            game.blocks = [],
-            game.currentBlock = undefined,
-            game.currentWord = undefined, 
-            game.destroyedsBlock = 0,
-            game.wordPos = 0,               // Posición de la letra que se comprueba
-            game.intervalId = undefined,
-            game.framesCounter = 0,
-            game.speed = 2,
-            game.score = 0,
-            game.level = 1,
-            game.lives = 3,
-            game.imageLive1 = undefined,
-            game.imageLive2 = undefined,
-            game.imageLive3 = undefined,
-            block.highlightWord = ""
+ function resetValues() {
+        game.ctx = undefined,
+        game.canvasSize.w = undefined,
+        game.canvasSize.y = undefined,
+        game.blocks = [],
+        game.currentBlock = undefined,
+        game.currentWord = undefined, 
+        game.destroyedsBlock = 0,
+        game.wordPos = 0,               // Posición de la letra que se comprueba
+        game.intervalId = undefined,
+        game.framesCounter = 0,
+        game.speed = 2,
+        game.score = 0,
+        game.level = 1,
+        game.lives = 3,
+        game.imageLive1 = undefined,
+        game.imageLive2 = undefined,
+        game.imageLive3 = undefined,
+        game.helpBomb = 3,
+        game.imageBomb1 = undefined,
+        game.imageBomb2 = undefined,
+        game.imageBomb3 = undefined,
+        block.highlightWord = ""
         }
     
