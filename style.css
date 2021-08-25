@@ -12,7 +12,7 @@
 
 body{
     background-size: 100% 100%;
-    background-image: url(./imagenes/fondo\ madera1.jpeg);
+    background-image: url("./imagenes/fondo\ madera1.jpeg");
     display: flex;
     flex-direction: column;
 }
@@ -32,7 +32,7 @@ body{
 }
 
 .pergaminoBg{
-    background-image: url(./imagenes/pergamino.png);
+    background-image: url("./imagenes/pergamino.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -74,7 +74,7 @@ body{
 }
 
 .start-btn>button {
-    background-image: url(./imagenes/texturaMaderaOscura.jpeg);
+    background-image: url("./imagenes/texturaMaderaOscura.jpeg");
     height: 60px;
     width: 200px;
     font-size: 35px;
@@ -93,7 +93,7 @@ canvas {
 
 /* Game Over Screen */
 .gameOverBg {
-    background-image: url(./imagenes/GameOverScreen.jpeg);
+    background-image: url("./imagenes/GameOverScreen.jpeg");
     background-size: cover;
     background-position: center;
     border: 10px solid rgb(78, 57, 30);
@@ -136,7 +136,7 @@ canvas {
     padding-top: 8px;
     color: black;
     margin: 30px;
-    background-image: url(./imagenes/texturaMaderaClara1.jpeg);
+    background-image: url("./imagenes/texturaMaderaClara1.jpeg");
     border: 5px solid rgb(78, 57, 30);
     margin-top: px;
 }
