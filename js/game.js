@@ -165,13 +165,15 @@ const game = {
          setListeners() {
              document.addEventListener('keydown', (e) => {
                  let pressedKey = e.key
-                 console.log("pressedKey: "+ pressedKey)
+                 console.log("presedkeydeahora: "+ e.keyCode)
                  if (pressedKey >= 'a' && pressedKey <= 'z'){
                     currentWord = this.currentBlock.word;
                     this.checkLetter(pressedKey, currentWord);
                     this.checkWord(currentWord); 
-                 } else if (pressedKey = " ") {
-                     this.activateHelpBomb()
+                    } 
+                if (e.keyCode === 32) {
+                     console.log("bomba")
+                        this.activateHelpBomb()
                  };
             })
          },
@@ -185,7 +187,6 @@ const game = {
                 this.wordPos = 0;
                 this.currentBlock.highlightWord = "";
             }
-            console.log("HighlightWord " + this.currentBlock.highlightWord)
     
         }, 
         
@@ -202,7 +203,6 @@ const game = {
             this.currentBlock = this.blocks[0]
             this.wordPos = 0; 
             this.levelUp();
-            console.log(this.destroyedsBlock)
          },
 
          updateScore(){
@@ -229,7 +229,6 @@ const game = {
 
          checkLives(){
              if (this.lives === 0){
-             console.log("gameOver")
              clearInterval(this.intervalId);
              this.gameOver();
              }
@@ -242,7 +241,8 @@ const game = {
              this.currentBlock = this.blocks[0]
              currentWord = this.currentBlock.word;
              this.wordPos = 0;
-             playBombSound()
+             console.log("atun")
+             playBombSound();
              }
          },
 
