@@ -11,7 +11,7 @@
 }
 
 body{
-    background-size: 100% 100%;
+    background-size: 100%;
     background-image: url("https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/fondo\ madera1.jpeg");
     display: flex;
     flex-direction: column;
@@ -26,15 +26,12 @@ body{
     width: 900px;
     display:flex;
     justify-content: center;
-   /*  background-image: url(/imagenes/pergamino.png);
-    background-repeat: no-repeat;
-    background-size: 100% 100%; */
 }
 
 .pergaminoBg{
     background-image: url("https://especabrer.github.io/Proyecto1-IronHack-Game-FastWest/imagenes/pergamino.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100%;
 
 
 }

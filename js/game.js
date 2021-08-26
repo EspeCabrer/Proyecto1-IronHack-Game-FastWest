@@ -71,8 +71,7 @@ const game = {
         },
 
         createBlock(word) {
-          //  const randomWidth = Math.trunc(Math.random() * (300 - 100) + 100);
-          //  const randomHeight = Math.trunc(Math.random() * (100 - 70) + 70);
+          
             const width = 420
             const height = 40
             const xRandomPosition = Math.trunc(Math.random() * (this.canvasSize.w - width))
