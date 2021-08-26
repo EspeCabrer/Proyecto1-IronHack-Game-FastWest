@@ -26,7 +26,6 @@ const game = {
             this.setContext(canvas);
             this.setCanvasDimensions(canvas);
             this.gameStart();
-            console.log("initCanvas")
         },
 
 
